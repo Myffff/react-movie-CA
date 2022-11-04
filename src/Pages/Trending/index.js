@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import SingleContent from "../../components/SingleContent";
 
 const Trending = () => {
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const [content, setContent] = useState([]);
 
   const fetchTrending = async () => {
