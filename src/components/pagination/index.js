@@ -1,8 +1,17 @@
 import React from "react";
 import { Pagination } from "@mui/material";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+    palette: {
+        neutral: {
+          main: '#ae9c98',
+          contrastText: '#000000',
+        },
+    },
+});
 
 const CustomPagination = ({setPage,numOfPage = 10}) => {
-    console.log(numOfPage);
     const handlePageChange = (page) => {
         setPage(page);
         window.scroll(0,0);
@@ -10,14 +19,16 @@ const CustomPagination = ({setPage,numOfPage = 10}) => {
 
     return(
         <div>
-        <Pagination 
-            sx={{
-                marginLeft: "30%",
-                marginBottom: "80px",
-            }}
-            onChange={(e) => handlePageChange(e.target.textContent)} 
-            count={numOfPage} variant="outlined" 
-            color="primary" size="large"/>
+            <ThemeProvider theme={darkTheme}>
+                <Pagination 
+                    sx={{
+                        marginLeft: "30%",
+                        marginBottom: "80px",
+                    }}
+                    onChange={(e) => handlePageChange(e.target.textContent)} 
+                    count={numOfPage} variant="outlined" 
+                    color="neutral" size="large"/>
+            </ThemeProvider>
         </div>
     )
         
