@@ -19,7 +19,7 @@ const App = () => {
   const handleChange = (event) => {
       setChecked(event.target.checked);
       if (color === '#39445a') {
-        setColor('#cac2d1')
+        setColor('#d2c3b0')
       } else {
         setColor('#39445a')
       }

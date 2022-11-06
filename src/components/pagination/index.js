@@ -23,7 +23,8 @@ const CustomPagination = ({setPage,numOfPage = 10}) => {
                 <Pagination 
                     sx={{
                         marginLeft: "30%",
-                        marginBottom: "80px",
+                        paddingBottom: "25px",
+                        marginBottom: "50px",
                     }}
                     onChange={(e) => handlePageChange(e.target.textContent)} 
                     count={numOfPage} variant="outlined" 
