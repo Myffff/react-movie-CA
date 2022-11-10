@@ -36,12 +36,6 @@ const Search = () => {
     }
   };
 
-  // useEffect(() => {
-  //   window.scroll(0, 0);
-  //   fetchSearch();
-  //   // eslint-disable-next-line
-  // }, [type, page]);
-
   return (
     <div>
       <ThemeProvider theme={darkTheme}>
@@ -65,8 +59,9 @@ const Search = () => {
           value={type}
           indicatorColor="primary"
           textColor="primary"
-          onChange={(newValue) => {
+          onChange={(event,newValue) => {
             setType(newValue);
+            // console.log(newValue.target.value)
             setPage(1);
           }}
           style={{ paddingBottom: 5 }}

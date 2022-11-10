@@ -22,7 +22,6 @@ const Series = () => {
   };
 
   useEffect(() => {
-    window.scroll(0, 0);
     fetchMovies();
     // eslint-disable-next-line
   }, [page,genreforURL]);

@@ -1,16 +1,15 @@
 import axios from "axios";
-import "./Trending.css";
 import { useEffect, useState } from "react";
 import SingleContent from "../../components/SingleContent";
 import CustomPagination from "../../components/pagination/index";
 
-const Trending = () => {
+const TopRating = () => {
   const [page,setPage] = useState(1);
   const [content, setContent] = useState([]);
 
-  const fetchTrending = async () => {
+  const fetchRating = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=26ba5e77849587dbd7df199727859189&page=${page}`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=26ba5e77849587dbd7df199727859189&page=${page}`
     );
 
     setContent(data.results);
@@ -18,13 +17,13 @@ const Trending = () => {
 
 
   useEffect(() => {
-    fetchTrending();
+    fetchRating();
     // eslint-disable-next-line
   }, [page]);
 
   return (
     <div>
-      <span className="pageTitle">Trending Today</span>
+      <span className="pageTitle">Top Rating</span>
       <div className="trending">
         {content &&
           content.map((c) => (
@@ -45,4 +44,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default TopRating;
