@@ -15,29 +15,32 @@ contains Trending as home page, together with: discover mivies; movie details; d
 + add Carousel
 + modify genres
 + modify rating
++ add modal to show movie details
 
 ## Setup requirements.
 
 [ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+"react-alice-carousel": "^2.2.2",
 
 ## API endpoints.
 
 [ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
-+ find out trending today( for movies and TVs together) - /
-+ discover list of movies - /movies
-+ movie details - /movies/:id
-+ discover list of TVs - /series
-+ search for movies or TVs - /search
-+ top rated movies and TVs - /topRating
++ trending today - /trending/all/day
++ find top rated movie - /movie/top_rated
++ search tv or movies - /search/movie (/search/tv)
++ get youtube trailer video - /movie/:id/video(/tv/:id/video)
++ Get the cast and crew for a movie - /movie/:id/credits (/tv/:id/credits)
+
 
 ## Routing.
 
 [ List the __new routes__ supported by your app and state the associated page.]
 
-+ /blogs - displays all published blogs.
-+ /blogs/:id - displays a particular blog.
-+ /blogs/:id/comments - detail view of a particular blog and its comments.
-+ etc.
++ find out trending today( for movies and TVs together) - /
++ discover list of TVs - /series
++ search for movies or TVs - /search
++ top rated movies and TVs - /topRating
+
 
 [If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
 
