@@ -21,13 +21,13 @@ const root =(theme)=>({
     border: "1px solid #282c34",
     borderRadius: 5,
     color: "white",
-    boxShadow: theme.shadows[5],
+    boxShadow: theme.shadows[3],
     padding: theme.spacing(2, 4, 3),
   },
 });
 
 
-export default function TransitionsModal({ children, media_type, id }) {
+export default function TransitionsModal({ media_type, id, children}) {
   const img_500 = "http://image.tmdb.org/t/p/w500";
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState();
@@ -102,10 +102,11 @@ export default function TransitionsModal({ children, media_type, id }) {
                 <div className="ContentModal__about">
                   <span className="ContentModal__title">
                     {content.name || content.title} (
-                    {(content.first_air_date || content.release_date).substring(
-                      0,
-                      4
-                    )}
+                      {(
+                      content.first_air_date ||
+                      content.release_date ||
+                      "-----"
+                    ).substring(0, 4)}
                     )
                   </span>
                   {content.tagline && (

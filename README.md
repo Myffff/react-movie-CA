@@ -16,6 +16,7 @@ contains Trending as home page, together with: discover mivies; movie details; d
 + modify genres
 + modify rating
 + add modal to show movie details
++ is that ok to see top rating as kind of sorting?
 
 ## Setup requirements.
 

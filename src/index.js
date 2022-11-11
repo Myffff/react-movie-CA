@@ -12,8 +12,20 @@ import Trending from "./Pages/Trending";
 import Search from "./Pages/Search/index";
 import MaterialUISwitch from "./components/Switch";
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const App = () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 360000,
+        refetchInterval: 360000, 
+        refetchOnWindowFocus: false
+      },
+    },
+  });
+
   const [color, setColor] = useState('#39445a')
   const [checked, setChecked] = useState(true);
   const handleChange = (event) => {
@@ -27,26 +39,29 @@ const App = () => {
 
   return (
     <div style={{backgroundColor: color}}>
-    <BrowserRouter>
-      <Header />
-      <FormControlLabel
-        control={<MaterialUISwitch/>}
-        checked={checked}
-        onChange={handleChange}
-        sx={{marginTop: "100px",
-          marginLeft: "20px",
-          }}
-      />
-      <Routes>
-        <Route path="/" element={<Trending/>} />
-        <Route path="/topRating" element={<TopRating/>} />
-        <Route path="/movies" element={<Movies/>} />
-        <Route path="/series" element={<Series/>} />
-        <Route path="/search" element={<Search/>} />
-        {/* add some more */}
-      </Routes>
-      <SimpleBottomNavigation />
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Header />
+        <FormControlLabel
+          control={<MaterialUISwitch/>}
+          checked={checked}
+          onChange={handleChange}
+          sx={{marginTop: "100px",
+            marginLeft: "20px",
+            }}
+        />
+        <Routes>
+          <Route path="/" element={<Trending/>} />
+          <Route path="/topRating" element={<TopRating/>} />
+          <Route path="/movies" element={<Movies/>} />
+          <Route path="/series" element={<Series/>} />
+          <Route path="/search" element={<Search/>} />
+          {/* add some more */}
+        </Routes>
+        <SimpleBottomNavigation />
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
     </div>
   );
 }
