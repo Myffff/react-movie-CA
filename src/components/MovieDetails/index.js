@@ -7,6 +7,7 @@ import "./MovieDetails.css";
 import { Button } from "@mui/material";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import Carousel from "../Carousel/index";
+import {  noPicture } from "../../config/config";
 
 const root =(theme)=>({
   modal: {
@@ -86,16 +87,17 @@ export default function TransitionsModal({ media_type, id, children}) {
         }}
       >
         <Fade in={open}>
+          <div>
           {content && (
             <div className={root.paper}>
               <div className="ContentModal">
                 <img
-                  src={`${img_500}/${content.poster_path}`}
+                  src={content.poster_path? `${img_500}/${content.poster_path}` :  noPicture}
                   alt={content.name || content.title}
                   className="ContentModal__portrait"
                 />
                 <img
-                  src={`${img_500}/${content.backdrop_path}`}
+                  src={content.backdrop_path?`${img_500}/${content.backdrop_path}`: noPicture}
                   alt={content.name || content.title}
                   className="ContentModal__landscape"
                 />
@@ -134,6 +136,7 @@ export default function TransitionsModal({ media_type, id, children}) {
               </div>
             </div>
           )}
+          </div>
         </Fade>
       </Modal>
     </>

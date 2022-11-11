@@ -35,7 +35,6 @@ const Trending = () => {
     return <h1>{error.message}</h1>;
   }
 
-  console.log(data)
   // setContent(data.results);
 
 
