@@ -7,6 +7,10 @@ const TopRating = () => {
   const [page,setPage] = useState(1);
   const [content, setContent] = useState([]);
 
+  const handleChange = (e, value) => {
+    setPage(value)
+  }
+
   const fetchRating = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
@@ -39,7 +43,7 @@ const TopRating = () => {
           ))}
       </div>
 
-      <CustomPagination setPage={setPage} />
+      <CustomPagination handleChange={handleChange} />
     </div>
   );
 };

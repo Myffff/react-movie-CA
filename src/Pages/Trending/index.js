@@ -1,13 +1,12 @@
 import axios from "axios";
 import "./Trending.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SingleContent from "../../components/SingleContent";
 import CustomPagination from "../../components/pagination/index";
 import { useQuery } from "react-query";
 
 const Trending = () => {
-  let [page,setPage] = useState(1);
-  // const [content, setContent] = useState([]);
+  const [page,setPage] = useState(1);
 
   const handleChange = (e, value) => {
     setPage(value)
@@ -35,14 +34,6 @@ const Trending = () => {
     return <h1>{error.message}</h1>;
   }
 
-  // setContent(data.results);
-
-
-
-  // useEffect(() => {
-  //   fetchTrending();
-  //   // eslint-disable-next-line
-  // }, [page]);
 
   return (
     <div>
