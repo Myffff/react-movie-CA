@@ -31,6 +31,9 @@ contains Trending as home page, together with: discover mivies; movie details; d
 + search tv or movies - /search/movie (/search/tv)
 + get youtube trailer video - /movie/:id/video(/tv/:id/video)
 + Get the cast and crew for a movie - /movie/:id/credits (/tv/:id/credits)
++ descover people - /person/popular
++ get person detail - /person/:id
++ get person related movies or TVs - /person/:id/credits
 
 
 ## Routing.
@@ -41,12 +44,10 @@ contains Trending as home page, together with: discover mivies; movie details; d
 + discover list of TVs - /series
 + search for movies or TVs - /search
 + top rated movies and TVs - /topRating
++ discover popular person - /people
 
 
 [If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
 
 ## Independent learning (If relevant).
-
-Itemize the technologies/techniques you researched independently and adopted in your project, 
-i.e. aspects not covered in the lectures/labs. Include the source code filenames that illustrate these 
-(we do not require code excerpts) and provide references to the online resources that helped you (articles/blogs).
+https://www.youtube.com/watch?v=vxUfx4aM5d8&t=6365s
